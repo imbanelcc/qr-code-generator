@@ -2,8 +2,9 @@
 
 Une application web ultra-légère pour générer et télécharger des QR Codes instantanément.
 
-## 🚀 Aperçu
-Ce projet propose une interface moderne en **Dark Mode** permettant de transformer n'importe quel lien URL en image QR Code haute résolution.
+## 🚀 Accès Direct
+Pas besoin d'installation ! Vous pouvez utiliser l'outil directement en ligne ici :  
+👉 **[https://imbanelcc.github.io/qr-code-generator/](https://imbanelcc.github.io/qr-code-generator/)**
 
 ## ✨ Fonctionnalités
 - 📥 **Génération en temps réel** : Transformez vos liens instantanément.
@@ -16,22 +17,24 @@ Ce projet propose une interface moderne en **Dark Mode** permettant de transform
 *   **Logique** : JavaScript Vanilla.
 *   **Moteur QR** : [QRCode.js](https://davidshimjs.github.io) via le [CDN jsDelivr](https://www.jsdelivr.com).
 
-## 📖 Comment l'utiliser ?
+## 📖 Utilisation Locale
+
+Si vous souhaitez l'héberger vous-même ou modifier le code :
 
 1.  **Copiez le code** dans un fichier nommé `index.html`.
-2.  **Ouvrez-le** avec votre navigateur (Chrome, Firefox, Safari).
+2.  **Ouvrez-le** avec votre navigateur (Chrome, Firefox, Edge).
 3.  **Collez votre lien** dans le champ de saisie.
 4.  Cliquez sur **Générer** puis sur **Télécharger**.
 
 ---
 
-### 🔧 Personnalisation du code
-Pour modifier la taille du QR Code, changez les valeurs `width` et `height` dans le script :
+### 🔧 Personnalisation
+Pour modifier la taille du QR Code, ajustez les paramètres dans la fonction `generateQR()` :
 ```javascript
 qr = new QRCode(qrContainer, {
     text: link,
-    width: 250,  // Modifiez la largeur ici
-    height: 250, // Modifiez la hauteur ici
+    width: 200,  // Modifier la largeur
+    height: 200, // Modifier la hauteur
     colorDark: "#000000",
     colorLight: "#ffffff"
 });
