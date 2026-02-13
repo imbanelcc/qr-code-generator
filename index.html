@@ -3,55 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>QR Code Generator</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        nav { margin-bottom: 20px; }
-        button { margin-right: 10px; }
-    </style>
 </head>
 <body>
-    <nav>
-        <button onclick="showV1()">Simple QR Code Generator</button>
-        <button onclick="showV2()">Advanced QR Code Generator</button>
-    </nav>
-
-    <div id="v1" style="display: block;">
-        <h1>Simple QR Code Generator - V1</h1>
-        <input type="text" id="v1-input" placeholder="Enter text or URL">
-        <button onclick="generateV1QRCode()">Generate QR Code</button>
-        <div id="v1-output"></div>
-        <script>
-            function generateV1QRCode() {
-                const input = document.getElementById('v1-input').value;
-                const qrCodeOutput = document.getElementById('v1-output');
-                // Logic for QR code generation V1
-                qrCodeOutput.innerHTML = `<p>QR Code for: ${input}</p>`;
-            }
-            function showV1() {
-                document.getElementById('v1').style.display = 'block';
-                document.getElementById('v2').style.display = 'none';
-            }
-        </script>
-    </div>
-
-    <div id="v2" style="display: none;">
-        <h1>Advanced QR Code Generator - V2</h1>
-        <input type="text" id="v2-input" placeholder="Enter WiFi SSID, Password, and Encryption">
-        <button onclick="generateV2QRCode()">Generate QR Code</button>
-        <div id="v2-output"></div>
-        <script>
-            function generateV2QRCode() {
-                const input = document.getElementById('v2-input').value;
-                const qrCodeOutput = document.getElementById('v2-output');
-                // Logic for QR code generation V2
-                qrCodeOutput.innerHTML = `<p>QR Code for WiFi: ${input}</p>`;
-            }
-            function showV2() {
-                document.getElementById('v2').style.display = 'block';
-                document.getElementById('v1').style.display = 'none';
-            }
-        </script>
-    </div>
+    <header>
+        <h1>QR Code Generator</h1>
+        <div id="tabs">
+            <button onclick="showTab('simple')">Simple Mode</button>
+            <button onclick="showTab('advanced')">Advanced Mode</button>
+        </div>
+    </header>
+    <main>
+        <section id="simple">
+            <h2>Simple Mode</h2>
+            <input type="text" id="simpleInput" placeholder="Enter URL...">
+            <button id="generateSimple">Generate QR Code</button>
+            <div id="qrCodeDisplaySimple"></div>
+        </section>
+        <section id="advanced" style="display:none;">
+            <h2>Advanced Mode</h2>
+            <input type="text" id="advancedInput" placeholder="Enter Text/Image/URL...">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="centerIconInput">Center Icon (optional):</label>
+            <input type="file" id="centerIconInput" accept="image/*">
+            <label for="customLabel">Custom Label:</label>
+            <input type="text" id="customLabel">
+            <button id="generateAdvanced">Generate QR Code</button>
+            <div id="qrCodeDisplayAdvanced"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
